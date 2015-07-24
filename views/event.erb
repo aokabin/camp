@@ -47,7 +47,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="type"><%= @data["date"] %> <%= @data["name"] %></h1>
+              <h1 id="type"><%= @data[:date"] %> <%= @data["name] %></h1>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
                   </thead>
                   <tbody>
                   <% rank_num = 0 %>
-                  <% @data["likeranking"].each do |rank| %>
+                  <% @data[:likeranking].each do |rank| %>
                     <% rank_num += 1%>
                     <% if rank_num == 1 %>
                       <tr class="warning">
@@ -78,19 +78,19 @@
                       <tr>
                     <% end %>
                       <td><%= rank_num %></td>
-                      <% if rank["category"] == 0 %>
+                      <% if rank[:category] == 0 %>
                         <td>Alcohols</td>
-                      <% elsif rank["category"] == 1 %>
+                      <% elsif rank[:category] == 1 %>
                         <td>Meats</td>
-                      <% elsif rank["category"] == 2 %>
+                      <% elsif rank[:category] == 2 %>
                         <td>Fishes</td>
-                      <% elsif rank["category"] == 3 %>
+                      <% elsif rank[:category] == 3 %>
                         <td>Vegetables</td>
                       <% else %>
                         <td>Carbohydrates</td>
                       <% end %>
-                      <td><%= rank["food"] %></td>
-                      <td><%= rank["percentage"] %>%</td>
+                      <td><%= rank[:food] %></td>
+                      <td><%= rank[:percentage] %>%</td>
                     </tr>
                   <% end %>
                   </tbody>
@@ -115,7 +115,7 @@
                   </thead>
                   <tbody>
                   <% rank_num = 0 %>
-                  <% @data["unlikeranking"].each do |rank| %>
+                  <% @data[:unlikeranking].each do |rank| %>
                     <% rank_num += 1%>
                     <% if rank_num == 1 %>
                       <tr class="info">
@@ -123,19 +123,19 @@
                       <tr>
                     <% end %>
                       <td><%= rank_num %></td>
-                      <% if rank["category"] == 0 %>
+                      <% if rank[:category] == 0 %>
                         <td>Alcohols</td>
-                      <% elsif rank["category"] == 1 %>
+                      <% elsif rank[:category] == 1 %>
                         <td>Meats</td>
-                      <% elsif rank["category"] == 2 %>
+                      <% elsif rank[:category] == 2 %>
                         <td>Fishes</td>
-                      <% elsif rank["category"] == 3 %>
+                      <% elsif rank[:category] == 3 %>
                         <td>Vegetables</td>
                       <% else %>
                         <td>Carbohydrates</td>
                       <% end %>
-                      <td><%= rank["food"] %></td>
-                      <td><%= rank["percentage"] %>%</td>
+                      <td><%= rank[:food] %></td>
+                      <td><%= rank[:percentage] %>%</td>
                     </tr>
                   <% end %>
                   </tbody>
@@ -156,11 +156,11 @@
         <div class="row">
 <!-- for文で回すところ -->
           <% i = 0 %>
-          <% @data["list"].each do |d| %>
+          <% @data[:list].each do |d| %>
             <% i += 1 %>
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3><%= d["username"] %>さん</h3>
+                <h3><%= d[:username] %>さん</h3>
               </div>
               <div class="panel-body">
                 <ul class="nav nav-tabs">
@@ -177,21 +177,21 @@
 
                     <h3>Likes</h3>
                     <p>
-                      <% if d["likelist"] == [] %>
+                      <% if d[:likelist] == [] %>
                         <p>特になし</p>
                       <% else %>
-                        <% d["likelist"].each do |likes| %>
-                          <%= likes["food"] %>, 
+                        <% d[:likelist].each do |likes| %>
+                          <%= likes[:food] %>, 
                         <% end %>
                       <% end %>
                     </p>
                     <h3>Unlikes</h3>
                     <p>
-                      <% if d["unlikelist"] == [] %>
+                      <% if d[:unlikelist] == [] %>
                         <p>特になし</p>
                       <% else %>
-                        <% d["unlikelist"].each do |unlikes| %>
-                          <%= unlikes["food"] %>, 
+                        <% d[:unlikelist].each do |unlikes| %>
+                          <%= unlikes[:food] %>, 
                         <% end %>
                       <% end %>
                     </p>
@@ -203,9 +203,9 @@
                     <h3>Likes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["likelist"].each do |likes| %>
-                        <% if likes["category"] == 0 %>
-                          <%= likes["food"] %>, 
+                      <% d[:likelist].each do |likes| %>
+                        <% if likes[:category] == 0 %>
+                          <%= likes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -216,9 +216,9 @@
                     <h3>Unlikes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["unlikelist"].each do |unlikes| %>
-                        <% if unlikes["category"] == 0 %>
-                          <%= unlikes["food"] %>, 
+                      <% d[:unlikelist].each do |unlikes| %>
+                        <% if unlikes[:category] == 0 %>
+                          <%= unlikes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -234,9 +234,9 @@
                     <h3>Likes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["likelist"].each do |likes| %>
-                        <% if likes["category"] == 1 %>
-                          <%= likes["food"] %>, 
+                      <% d[:likelist].each do |likes| %>
+                        <% if likes[:category] == 1 %>
+                          <%= likes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -247,9 +247,9 @@
                     <h3>Unlikes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["unlikelist"].each do |unlikes| %>
-                        <% if unlikes["category"] == 1 %>
-                          <%= unlikes["food"] %>, 
+                      <% d[:unlikelist].each do |unlikes| %>
+                        <% if unlikes[:category] == 1 %>
+                          <%= unlikes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -265,9 +265,9 @@
                     <h3>Likes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["likelist"].each do |likes| %>
-                        <% if likes["category"] == 2 %>
-                          <%= likes["food"] %>, 
+                      <% d[:likelist].each do |likes| %>
+                        <% if likes[:category] == 2 %>
+                          <%= likes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -278,9 +278,9 @@
                     <h3>Unlikes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["unlikelist"].each do |unlikes| %>
-                        <% if unlikes["category"] == 2 %>
-                          <%= unlikes["food"] %>, 
+                      <% d[:unlikelist].each do |unlikes| %>
+                        <% if unlikes[:category] == 2 %>
+                          <%= unlikes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -296,9 +296,9 @@
                     <h3>Likes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["likelist"].each do |likes| %>
-                        <% if likes["category"] == 3 %>
-                          <%= likes["food"] %>, 
+                      <% d[:likelist].each do |likes| %>
+                        <% if likes[:category] == 3 %>
+                          <%= likes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -309,9 +309,9 @@
                     <h3>Unlikes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["unlikelist"].each do |unlikes| %>
-                        <% if unlikes["category"] == 3 %>
-                          <%= unlikes["food"] %>, 
+                      <% d[:unlikelist].each do |unlikes| %>
+                        <% if unlikes[:category] == 3 %>
+                          <%= unlikes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -327,9 +327,9 @@
                     <h3>Likes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["likelist"].each do |likes| %>
-                        <% if likes["category"] == 4 %>
-                          <%= likes["food"] %>, 
+                      <% d[:likelist].each do |likes| %>
+                        <% if likes[:category] == 4 %>
+                          <%= likes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
@@ -340,9 +340,9 @@
                     <h3>Unlikes</h3>
                     <p>
                       <% num = 0 %>
-                      <% d["unlikelist"].each do |unlikes| %>
-                        <% if unlikes["category"] == 417 %>
-                          <%= unlikes["food"] %>, 
+                      <% d[:unlikelist].each do |unlikes| %>
+                        <% if unlikes[:category] == 417 %>
+                          <%= unlikes[:food] %>, 
                           <% num = 1%>
                         <% end %>
                       <% end %>
